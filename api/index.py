@@ -83,9 +83,7 @@ def get_wind_forecast_analysis(
 
     combined_results = []
     
-    # Elexon sometimes misses half-hourly forecast data points. 
-    # To satisfy the 30-min resolution requirement, if an exact :30 forecast is missing, 
-    # we carry forward the :00 forecast for that half-hour, just as a trader would.
+   
     sorted_actual_times = sorted(actuals_map.keys())
     last_known_forecast = None
     

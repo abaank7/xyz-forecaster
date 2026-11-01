@@ -4,7 +4,7 @@ A full-stack operational intelligence dashboard built for UK energy utility trad
 
 ## 🌐 Live Application
 The production application is deployed serverlessly via Vercel and is accessible here: 
-**[INSERT YOUR VERCEL LINK HERE]**
+**https://xyz-forecaster.vercel.app/**
 
 ## 🏗️ Architecture & Tech Stack
 - **Frontend UI:** React, Vite, Recharts
@@ -24,25 +24,31 @@ This repository is fully containerized for seamless technical review and local d
 
 1. Clone this repository and navigate to the root directory.
 2. Build and start the containers using Docker Compose:
-   ```bash
-   docker compose up --build
+   
+       docker compose up --build
+
+3. Open your browser and navigate to the application:
+   - **Frontend UI:** `http://localhost:5173`
+   - **Backend API Docs:** `http://localhost:8000/docs`
+
+To stop the containers, press `CTRL+C` in the terminal and run `docker compose down`.
+
+## 📁 Repository Structure
+
+    ├── api/
+    │   ├── index.py           # FastAPI backend logic (Fetches, aligns, and calculates Elexon telemetry)
+    │   └── requirements.txt   # Python dependencies generated via `uv`
+    ├── src/
+    │   ├── App.jsx            # Main React Dashboard Component & Client-Side Logic
+    │   ├── App.css            # Custom CSS for the Dark Mode Trading Interface
+    │   └── main.jsx           # React Entry Point
+    ├── public/                # Static assets
+    ├── Dockerfile             # Containerizes the Python FastAPI backend
+    ├── docker-compose.yml     # Orchestrates the local React + Python multi-container environment
+    ├── vercel.json            # Configuration for Vercel Serverless routing
+    ├── vite.config.js         # Vite configuration with local proxy routing
+    └── package.json           # Node.js dependencies and scripts
 
 
-
-🤖 AI Assistance Disclosure
+## 🤖 AI Assistance Disclosure
 In accordance with the challenge guidelines, I acknowledge the use of Large Language Models (LLMs) to augment the development process. Specifically, AI tools were utilized to accelerate boilerplate scaffolding, optimize the CSS grid layouts for the dark-mode interface, and quickly construct the initial Recharts SVG gradient definitions, allowing me to focus on the core business logic, API alignment, and architectural design.
-
-
-├── api/
-│   ├── index.py           # FastAPI backend logic (Fetches, aligns, and calculates Elexon telemetry)
-│   └── requirements.txt   # Python dependencies generated via `uv`
-├── src/
-│   ├── App.jsx            # Main React Dashboard Component & Client-Side Logic
-│   ├── App.css            # Custom CSS for the Dark Mode Trading Interface
-│   └── main.jsx           # React Entry Point
-├── public/                # Static assets
-├── Dockerfile             # Containerizes the Python FastAPI backend
-├── docker-compose.yml     # Orchestrates the local React + Python multi-container environment
-├── vercel.json            # Configuration for Vercel Serverless routing
-├── vite.config.js         # Vite configuration with local proxy routing
-└── package.json           # Node.js dependencies and scripts
